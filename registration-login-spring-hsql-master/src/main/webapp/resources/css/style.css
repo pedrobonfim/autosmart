@@ -1,0 +1,42 @@
+/*body {
+	background-image: url('../bg2.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}*/
+
+#bg {
+	width: 100%; /* Largura fixa para a div */
+	min-height:669px; /* Altura mínima */
+	height:auto !important; /* Altura ajustável de acordo com o conteúdo */
+	height:200px; /* Altura mínima para IE */
+	background-image: url('../images/bg2.jpg'); /* Aqui vai a mesma imagem que usamos acima */
+	background-size:100% 100%; /* Imagem ocupando toda largura e altura da div */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+	-moz-background-size: 100% 100%;
+}
+
+.esqueceuSenha {
+	color: rgba(255, 255, 0, 0.7) !important;
+	padding-top: 5px !important;
+}
+
+
+/* Espaçamento entre os input's */
+.form-control {
+	margin-bottom: 5px !important;
+}
+
+.form-control:focus {
+	border: 1px solid rgba(63, 83, 97, 0.6) !important;
+}
+
+.close {
+	color: #f2dede !important;
+	margin-right: 0px;
+	background-color: #a94442 !important;
+	padding: 0px 5px 5px 5px !important;
+	border-radius: 0px 3px 0px 3px;	
+	opacity: 100 !important;
+}
