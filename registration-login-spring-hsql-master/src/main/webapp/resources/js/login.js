@@ -1,3 +1,9 @@
+function mascaraNome(nome) {
+	if(nome.value.length >= 8) {
+		
+	}
+}
+
 function MascaraRG(rg){
         if(mascaraInteiro(rg)==false){
                 event.returnValue = false;
@@ -27,9 +33,9 @@ function formataCampo(campo, Mascara, evento) {
         if (Digitato != 8) { // backspace 
                 for(i=0; i<= TamanhoMascara; i++) { 
                         boleanoMascara  = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
-                                                                || (Mascara.charAt(i) == "/")) 
+                                                                || (Mascara.charAt(i) == "/"));
                         boleanoMascara  = boleanoMascara || ((Mascara.charAt(i) == "(") 
-                                                                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " ")) 
+                                                                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " ")) ;
                         if (boleanoMascara) { 
                                 NovoValorCampo += Mascara.charAt(i); 
                                   TamanhoMascara++;

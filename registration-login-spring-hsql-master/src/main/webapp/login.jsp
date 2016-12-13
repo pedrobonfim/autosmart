@@ -46,7 +46,8 @@
 
 <body>
 
-<div class="container">
+<div id="bg"> 
+	<div class="container">
 
  			<form class="form-signin">
                 <p align="center" style="padding-bottom: 40px;"><img src="resources/images/logoSPE-31.png" width="140" height="130" /></p>
@@ -108,7 +109,8 @@
                               <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
                               
                               <label for="inputUserName" class="sr-only">Nome</label>
-                              <input type="text" name="username" class="form-control" placeholder="Nome" required autofocus>
+                              <input type="text" name="username" class="form-control" 
+                              	   onBlur="mascaraNome(username)" placeholder="Nome" required autofocus>
                               
                               <label for="inputPassword" class="sr-only">Senha</label>
                               <input type="password" name="password" class="form-control" placeholder="Senha" required>
@@ -134,7 +136,7 @@
                               <input type="submit" class="btn btn-lg btn-primary btn-block btnLogar" />
                               
                               <br>
-	                             <div class="alert alert-danger">${error}</div>
+	                             <div class="alert alert-danger">${errorPassword}</div>
                           </div>
                           <input type="hidden" name="${_csrf.parameterName}"
                         value="${_csrf.token}" />
@@ -161,6 +163,7 @@
 
     </form> -->
 
+	</div>
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

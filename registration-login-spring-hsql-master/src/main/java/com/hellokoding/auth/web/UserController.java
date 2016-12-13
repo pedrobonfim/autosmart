@@ -37,22 +37,22 @@ public class UserController {
         //userValidator.validate(userForm, bindingResult);
 
     	if (userForm.getUsername().length() < 6 || userForm.getUsername().length() > 32) { 
-    		model.addAttribute("error", "Nome de usuário acima de 6 caracteres");
+    		model.addAttribute("errorPassword", "Nome de usuário acima de 6 caracteres");
     		return "login";
     	}
     	
     	if (userService.findByUsername(userForm.getUsername()) != null) {
-    		model.addAttribute("error", "Usuário já cadastrado");
+    		model.addAttribute("errorPassword", "Usuário já cadastrado");
             return "login";
         }
 
         if (userForm.getPassword().length() < 8 || userForm.getPassword().length() > 32) {
-        	model.addAttribute("error", "Senha acima de 8 caracteres");
+        	model.addAttribute("errorPassword", "Senha acima de 8 caracteres");
         	return "login";
         }
 
         if (!userForm.getPasswordConfirm().equals(userForm.getPassword())) {
-        	model.addAttribute("error", "Senhas incompatíveis");
+        	model.addAttribute("errorPassword", "Senhas incompatíveis");
         	return "login";
         }
 
