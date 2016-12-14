@@ -136,7 +136,9 @@
                               <input type="submit" class="btn btn-lg btn-primary btn-block btnLogar" />
                               
                               <br>
+                              <c:if test="${errorPassword ne null}">
 	                             <div class="alert alert-danger">${errorPassword}</div>
+	                          </c:if>
                           </div>
                           <input type="hidden" name="${_csrf.parameterName}"
                         value="${_csrf.token}" />

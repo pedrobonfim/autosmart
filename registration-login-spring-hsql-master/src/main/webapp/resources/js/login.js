@@ -1,8 +1,14 @@
-function mascaraNome(nome) {
-	if(nome.value.length >= 8) {
-		
-	}
+function finalizarAgora(nomeUsuario) {
+	$.get("edit?nomeUsuario=" + nomeUsuario);
 }
+
+function editaUsuario(nomeUsuario) {
+    $.post("edit", {'nomeUsuario' : nomeUsuario}, function() {
+      // selecionando o elemento html através da 
+      // ID e alterando o HTML dele 
+      $("#edit_"+nomeUsuario).html("edit");
+    });
+  }
 
 function MascaraRG(rg){
         if(mascaraInteiro(rg)==false){
