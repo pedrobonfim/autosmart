@@ -47,7 +47,8 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
         
-        <form method="POST" action="${contextPath}/edit" modelAttribute="pageContext.request.userPrincipal.name" id="editUser">
+        <form method="POST" action="${contextPath}/edit" id="editUser">
+        	<input type="hidden" id="userName" name="${pageContext.request.userPrincipal.name}" value="${pageContext.request.userPrincipal.name}"/>
         	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
@@ -67,7 +68,7 @@
 								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-car">Reservar vaga</span></a></li>
 								<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-credit-card">Fazer pagamento</span></a></li>
 								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-history">Consultar histórico</span></a></li>
-								<li><a href="#editarUsuario" id="contact-link" class="skel-layers-ignoreHref"><span onClick="finalizarAgora('pedrobonfim')" class="icon fa-user">Editar dados pessoais</span></a></li>
+								<li><a href="#editarUsuario" id="contact-link" class="skel-layers-ignoreHref"><span onClick="finalizarAgora()" class="icon fa-user">Editar dados pessoais</span></a></li>
 								<li><a href="#sobre" id="contact-link" class="skel-layers-ignoreHref"><span data-toggle="modal" data-target="#modalQuemSomos" class="icon fa-exclamation-circle">Quem somos</span></a></li>
 								<li><a href="#sobre" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-sign-out" onclick="document.forms['logoutForm'].submit()">Logout</span></a></li>
 							</ul>

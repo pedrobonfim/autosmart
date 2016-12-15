@@ -1,5 +1,11 @@
-function finalizarAgora(nomeUsuario) {
-	$.get("edit?nomeUsuario=" + nomeUsuario);
+function finalizarAgora() {
+	var nome = $("#userName").val();
+	$.get("edit?nomeUsuario=" + nome, function(data) {
+		var retorno = data;
+		
+		
+	});
+	
 }
 
 function editaUsuario(nomeUsuario) {

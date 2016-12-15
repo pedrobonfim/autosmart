@@ -26,10 +26,10 @@ public class UserController {
     private UserValidator userValidator;
     
     @RequestMapping("edit")
-    public String edit(String nomeUsuario) {
+    public User edit(String nomeUsuario) {
     	User usuario = userService.findByUsername(nomeUsuario);
     	
-    	return "welcome";
+    	return usuario;
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
