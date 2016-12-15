@@ -1,20 +1,70 @@
-function finalizarAgora() {
-	var nome = $("#userName").val();
-	$.get("edit?nomeUsuario=" + nome, function(data) {
-		var retorno = data;
-		
-		
-	});
+function alterarUsuario() {
+//	var nome = $("#userName").val();
+//	
+//	var rg = $("#rG").val();
+//	var cpf = $("#cPF").val();
+//	var telefone = $("#telefone").val();
 	
+	var nome = {"rg": $("#rG").val(),
+			"username": $("#userName").val(), 
+				
+				"cpf": $("#cPF").val(),
+				"telUser": $("#telefone").val()};
+
+	
+	$.ajax({
+	    type: "POST",
+	    contentType: "application/json",
+	    url: "/alterarUsuario",
+	    data: JSON.stringify(nome),
+	    dataType: 'json',
+	    beforeSend : function(jqXHR) {
+	    	jqXHR.overrideMimeType('application/json');
+	    	var token = $("input[name='_csrf']").val();
+	    	var header = "X-CSRF-TOKEN";
+	    	jqXHR.setRequestHeader(header, token);
+	    	},
+	    success: function (data) {
+	    	var retorno = data;
+	    	$("#email").val(retorno.email);
+	    	$("#rG").val(retorno.rG);
+	    	$("#cPF").val(retorno.cPF);
+	    	$("#telefone").val(retorno.telefone);
+	    },
+	    error: function (e) {
+	    	console.log(e);
+	    }
+	});
 }
 
-function editaUsuario(nomeUsuario) {
-    $.post("edit", {'nomeUsuario' : nomeUsuario}, function() {
-      // selecionando o elemento html através da 
-      // ID e alterando o HTML dele 
-      $("#edit_"+nomeUsuario).html("edit");
-    });
+function finalizarAgora() {
+	var nome = $("#userName").val();
+	
+	$.ajax({
+	    type: "POST",
+	    contentType: "application/json",
+	    url: "/welcome",
+	    data: nome,
+	    dataType: 'json',
+	    beforeSend : function(jqXHR) {
+	    	jqXHR.overrideMimeType('application/json');
+	    	var token = $("input[name='_csrf']").val();
+	    	var header = "X-CSRF-TOKEN";
+	    	jqXHR.setRequestHeader(header, token);
+	    	},
+	    success: function (data) {
+	    	var retorno = data;
+	    	$("#email").val(retorno.email);
+	    	$("#rG").val(retorno.rg);
+	    	$("#cPF").val(retorno.cpf);
+	    	$("#telefone").val(retorno.telefone);
+	    },
+	    error: function (e) {
+	    	console.log(e);
+	    }
+	});
   }
+
 
 function formata_data(data) {
 	if(mascaraInteiro(data)==false){

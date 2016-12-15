@@ -49,7 +49,7 @@
         
         <form method="POST" action="${contextPath}/edit" id="editUser">
         	<input type="hidden" id="userName" name="${pageContext.request.userPrincipal.name}" value="${pageContext.request.userPrincipal.name}"/>
-        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        	<input type="hidden" id="token" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
     <!-- Header -->
@@ -118,7 +118,7 @@
 					</section>
 
 				<!-- Portfolio -->
-					<section id="portfolio" class="two">
+			<!-- 		<section id="portfolio" class="two">
 						<div class="container">
 
 							<header>
@@ -177,9 +177,10 @@
 
 						</div>
 					</section>
+					-->
 
 				<!-- About Me -->
-					<section id="about" class="three">
+				<!-- <section id="about" class="three">
 						<div class="container">
 
 							<header>
@@ -197,6 +198,8 @@
 
 						</div>
 					</section>
+					
+					-->
 
 				<!-- Contact -->
 					<section id="#editarUsuario" class="four">
@@ -206,35 +209,29 @@
 									<h2>Editar Usuário</h2>
 								</header>
 	
-								<label for="inputEmail" class="sr-only">Email</label>
-                              <input type="text" name="email" class="form-control" placeholder="Email" required>
-                              
-                              <label for="inputUserName" class="sr-only">Nome</label>
-                              <input type="text" name="username" class="form-control" 
-                              	   onBlur="mascaraNome(username)" placeholder="Nome" required>
-                              
-                              <label for="inputPassword" class="sr-only">Senha</label>
-                              <input type="password" name="password" class="form-control" placeholder="Senha" required>
-                              
-                              <label for="inputPassword" class="sr-only">Confirmar senha</label>
-                              <input type="password" name="passwordConfirm" class="form-control" placeholder="Confirmar Senha" required>
+							  <label for="inputEmail" class="sr-only">Email</label>
+                              <input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
                               
                               <label for="inputRG" class="sr-only">RG</label>
-                              <input type=text name="rg" class="form-control"
-                              		   maxlength="12" onKeyPress="MascaraRG(rg);"
+                              <input type=text name="rG" class="form-control" id="rG"
+                              		   maxlength="12" onKeyPress="MascaraRG(rG);"
                               		   placeholder="RG" required>
                               
                               <label for="inputCPF" class="sr-only">CPF</label>
-                              <input type="text" name="cpf" class="form-control" 
-			                            onBlur="ValidarCPF(cpf);" 
-										onKeyPress="MascaraCPF(cpf);" maxlength="14"
+                              <input type="text" name="cPF" id="cPF" class="form-control" 
+			                            onBlur="ValidarCPF(cPF);" 
+										onKeyPress="MascaraCPF(cPF);" maxlength="14"
 			                            placeholder="CPF" required>
                               
                               <label for="inputTelefone" class="sr-only">Telefone</label>
-                              <input type="text" name="telefone" class="form-control" 
-                              			onKeyPress="MascaraTelefone(telefone)" maxlength="11" placeholder="Telefone"><br>
+                              <input type="text" name="telefone" class="form-control" if="telefone" 
+                              			onKeyPress="MascaraTelefone(telefone)" maxlength="15" placeholder="Telefone"><br>
+                              			
+                              <input type="submit" onClick="alterarUsuario()" value="Editar Usuario" class="btn btn-lg btn-primary btn-block btnLogar" />
 
 						</div>
+						  <input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" />
 					</section>
 
 			</div>
@@ -244,7 +241,7 @@
 
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; AutoSmartPark. All rights reserved.</li>
 					</ul>
 
 			</div>

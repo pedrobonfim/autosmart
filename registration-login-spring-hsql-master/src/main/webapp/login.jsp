@@ -110,7 +110,7 @@
                               
                               <label for="inputUserName" class="sr-only">Nome</label>
                               <input type="text" name="username" class="form-control" 
-                              	   onBlur="mascaraNome(username)" placeholder="Nome" required autofocus>
+                              	   onBlur="mascaraNome(username)" placeholder="Usuário" required autofocus>
                               
                               <label for="inputPassword" class="sr-only">Senha</label>
                               <input type="password" name="password" class="form-control" placeholder="Senha" required>
@@ -119,24 +119,24 @@
                               <input type="password" name="passwordConfirm" class="form-control" placeholder="Confirmar Senha" required>
                               
                               <label for="inputRG" class="sr-only">RG</label>
-                              <input type=text name="rg" class="form-control"
-                              		   maxlength="12" onKeyPress="MascaraRG(rg);" 
+                              <input type=text name="rG" class="form-control"
+                              		   maxlength="12" onKeyPress="MascaraRG(rG);" 
                               		   placeholder="RG" required autofocus>
                               
                               <label for="inputCPF" class="sr-only">CPF</label>
-                              <input type="text" name="cpf" class="form-control" 
-			                            onBlur="ValidarCPF(cpf);" 
-										onKeyPress="MascaraCPF(cpf);" maxlength="14"
+                              <input type="text" name="cPF" class="form-control" 
+			                            onBlur="ValidarCPF(cPF);" 
+										onKeyPress="MascaraCPF(cPF);" maxlength="14"
 			                            placeholder="CPF" required autofocus>
 			                            
-			                  <label for="inputData" class="sr-only">Data</label>          
-                              <input name="data" type="text" id="data" class="form-control" 
-			                              onKeyPress="formata_data(data);validarData(data, true);" onBlur=""
-			                              size="11" maxlength="10" placeholder="Data dd/mm/aaaa" required>
+<!-- 			                  <label for="inputData" class="sr-only">Data</label>           -->
+<!--                               <input name="data" type="text" id="data" class="form-control"  -->
+<!-- 			                              onKeyPress="formata_data(data);validarData(data, true);" onBlur="" -->
+<!-- 			                              size="11" maxlength="10" placeholder="Data dd/mm/aaaa" required> -->
                               
                               <label for="inputTelefone" class="sr-only">Telefone</label>
                               <input type="text" name="telefone" class="form-control" 
-                              			onKeyPress="MascaraTelefone(telefone)" maxlength="11" placeholder="Telefone"><br>
+                              			onKeyPress="MascaraTelefone(telefone)" maxlength="15" placeholder="Telefone"><br>
                               
                               <input type="submit" class="btn btn-lg btn-primary btn-block btnLogar" />
                               

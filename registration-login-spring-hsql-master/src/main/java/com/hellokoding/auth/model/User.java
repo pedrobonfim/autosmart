@@ -16,10 +16,10 @@ public class User {
     private String email;
 	
 	@Column(name="rg", nullable = false)
-	private Long rg;
+	private String rG;
 	
 	@Column(name="cpf", nullable = false)
-	private Long cpf;
+	private String cPF;
 	
 	@Column(name="cartao_credito")
 	private Long cartaoCredito;
@@ -90,20 +90,20 @@ public class User {
 		this.email = email;
 	}
 
-	public Long getRG() {
-		return rg;
+	public String getRG() {
+		return rG;
 	}
 
-	public void setRG(Long rg) {
-		this.rg = rg;
+	public void setRG(String rg) {
+		this.rG = rg;
 	}
 
-	public Long getCPF() {
-		return cpf;
+	public String getCPF() {
+		return cPF;
 	}
 
-	public void setCPF(Long cpf) {
-		this.cpf = cpf;
+	public void setCPF(String cpf) {
+		this.cPF = cpf;
 	}
 
 	public Long getCartaoCredito() {
@@ -145,4 +145,5 @@ public class User {
 	public void setStatusUser(String statusUser) {
 		this.statusUser = statusUser;
 	}
+
 }

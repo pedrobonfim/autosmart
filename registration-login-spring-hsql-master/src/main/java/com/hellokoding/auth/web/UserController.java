@@ -1,13 +1,13 @@
 package com.hellokoding.auth.web;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hellokoding.auth.model.User;
 import com.hellokoding.auth.service.SecurityService;
@@ -25,11 +25,36 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
     
-    @RequestMapping("edit")
-    public User edit(String nomeUsuario) {
+    @RequestMapping(value = "/welcome", method = RequestMethod.POST)
+    public @ResponseBody User edit(@RequestBody String nomeUsuario) {
     	User usuario = userService.findByUsername(nomeUsuario);
     	
     	return usuario;
+    }
+    
+    @RequestMapping(value = "/alterarUsuario", method = RequestMethod.POST)
+    public String alterarUsuario(@RequestBody User nome) {
+    	User usuario = userService.findByUsername(nome.getUsername());
+    	
+    	if(nome.getCPF() != null) {
+    		usuario.setCPF(nome.getCPF());
+    	}
+    	
+    	if(nome.getRG() != null) {
+    		usuario.setRG(nome.getRG());
+    	}
+
+    	if(nome.getUsername() != null) {
+    		usuario.setUsername(nome.getUsername());
+    	}
+    	
+    	if(nome.getTelUser() != null) {
+    		usuario.setTelUser(nome.getTelUser());
+    	}
+    	
+    	userService.save(usuario);
+    	
+    	return "welcome";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
