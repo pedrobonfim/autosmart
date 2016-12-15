@@ -120,7 +120,7 @@
                               
                               <label for="inputRG" class="sr-only">RG</label>
                               <input type=text name="rg" class="form-control"
-                              		   maxlength="12" onKeyPress="MascaraRG(rg);"
+                              		   maxlength="12" onKeyPress="MascaraRG(rg);" 
                               		   placeholder="RG" required autofocus>
                               
                               <label for="inputCPF" class="sr-only">CPF</label>
@@ -128,6 +128,11 @@
 			                            onBlur="ValidarCPF(cpf);" 
 										onKeyPress="MascaraCPF(cpf);" maxlength="14"
 			                            placeholder="CPF" required autofocus>
+			                            
+			                  <label for="inputData" class="sr-only">Data</label>          
+                              <input name="data" type="text" id="data" class="form-control" 
+			                              onKeyPress="formata_data(data);validarData(data, true);" onBlur=""
+			                              size="11" maxlength="10" placeholder="Data dd/mm/aaaa" required>
                               
                               <label for="inputTelefone" class="sr-only">Telefone</label>
                               <input type="text" name="telefone" class="form-control" 

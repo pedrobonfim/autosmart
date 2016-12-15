@@ -10,6 +10,32 @@ function editaUsuario(nomeUsuario) {
     });
   }
 
+function formata_data(data) {
+	if(mascaraInteiro(data)==false){
+	        event.returnValue = false;
+	}       
+	return formataCampo(data, '00/00/0000', event);
+	
+}
+
+//function validarData(data) {
+//	if(data.value.length <= 9){
+//		$("input[name='data']").val( '' );  
+//	}
+//}
+			
+//(new Date()).fromString("3/9/2013") : 3 of september
+//(new Date()).fromString("3/9/2013", false) : 9 of march
+function validarData(str, ddmmyyyy) {
+	 var m = str.value.match(/(\d+)(-|\/)(\d+)(?:-|\/)(?:(\d+)\s+(\d+):(\d+)(?::(\d+))?(?:\.(\d+))?)?/);
+	 if(m[2] == "/"){
+	     if(ddmmyyyy === false)
+	         return new Date(+m[4], +m[1] - 1, +m[3], m[5] ? +m[5] : 0, m[6] ? +m[6] : 0, m[7] ? +m[7] : 0, m[8] ? +m[8] * 100 : 0);
+	     return new Date(+m[4], +m[3] - 1, +m[1], m[5] ? +m[5] : 0, m[6] ? +m[6] : 0, m[7] ? +m[7] : 0, m[8] ? +m[8] * 100 : 0);
+	 }
+	 return new Date(+m[1], +m[3] - 1, +m[4], m[5] ? +m[5] : 0, m[6] ? +m[6] : 0, m[7] ? +m[7] : 0, m[8] ? +m[8] * 100 : 0);
+}
+
 function MascaraRG(rg){
         if(mascaraInteiro(rg)==false){
                 event.returnValue = false;
@@ -93,5 +119,5 @@ function ValidarCPF(Objcpf){
 
         var digitoGerado=(soma1*10)+soma2;
         if(digitoGerado!=digitoDigitado)        
-                alert('CPF Invalido!');         
+        	$("input[name='cpf']").val( '' );    
 }
